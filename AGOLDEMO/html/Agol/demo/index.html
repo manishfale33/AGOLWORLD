@@ -96,8 +96,7 @@
         <!-- Canvas Mobile Menu start -->
         <nav class="right_menu_togle mobile-navbar-menu d-lg-none" id="mobile-navbar-menu"></nav>
         <p class="des d-none d-lg-block">
-            We take a bottom-line approach to each project. Our clients consistently, enhanced brand loyalty and new
-            leads thanks to our work.
+
         </p>
         <!-- Canvas Menu end -->
         <div class="contact-info-list">
@@ -216,10 +215,7 @@
                             </div>
                             <div class="header-content-right d-flex align-items-center justify-content-end">
                                 <div class="input-form tj-select">
-                                    <select class="nice-select">
-                                        <option value="1">English</option>
-                                        <option value="2">Arabic</option>
-                                    </select>
+                                    <select class="nice-select" id="custom_translate_element"></select>
                                 </div>
                                 <!--div class="header-social-icon">
                                         <ul class="list-gap social-list">
@@ -265,11 +261,11 @@
                                         <a href="about.html"> About Us</a>
                                     </li>
                                     <li class="menu-item-has-children">
-                                        <a href="#"> Service</a>
-                                        <ul class="list-gap sub-menu-list">
+                                        <a href="service.html"> Service</a>
+                                        <!--ul class="list-gap sub-menu-list">
                                             <li><a href="service.html">Service</a></li>
                                             <li><a href="service-details.html">Service Details</a></li>
-                                        </ul>
+                                        </ul-->
                                     </li>
                                     <!--li class="menu-item-has-children">
                                             <a href="#"> Pages</a>
@@ -299,8 +295,8 @@
                                     </a>
                                 </div>
                                 <div class="input-form tj-select d-lg-none">
-                                    <select class="nice-select">
-                                        <option value="1">English</option>
+                                    <select class="nice-select" onchange="translateOptions()"">
+                                        <option value=" 1">English</option>
                                         <option value="2">Arabic</option>
                                     </select>
                                 </div>
@@ -588,7 +584,7 @@
                             <div class="services-icon">
                                 <i class="flaticon-plane"></i>
                             </div>
-                            <h4 class="service-title"><a href="service-details.html">Air Freight Service</a></h4>
+                            <h4 class="service-title"><a href="service-details.html">Air Charters</a></h4>
                             <p class="des">
                                 Long established fact that reader will be distracted by the Long established fact
                                 that will be distracted by the Long
@@ -609,7 +605,7 @@
                             <div class="services-icon">
                                 <i class="flaticon-delivery-van"></i>
                             </div>
-                            <h4 class="service-title"><a href="service-details.html">Road Transport</a></h4>
+                            <h4 class="service-title"><a href="service-details.html">On Board Courier</a></h4>
                             <p class="des">
                                 Long established fact that reader will be distracted by the Long established fact
                                 that will be distracted by the Long
@@ -630,7 +626,7 @@
                             <div class="services-icon">
                                 <i class="flaticon-cargo-ship-1"></i>
                             </div>
-                            <h4 class="service-title"><a href="service-details.html">Ocean Freight Service</a></h4>
+                            <h4 class="service-title"><a href="service-details.html">Dedicated Ground</a></h4>
                             <p class="des">
                                 Long established fact that reader will be distracted by the Long established fact
                                 that will be distracted by the Long
@@ -645,13 +641,13 @@
                 <div class="col-lg-6" data-sal="slide-up" data-sal-duration="800" data-sal-delay="600">
                     <div class="service-item-two d-flex justify-content-between">
                         <div class="service-image">
-                            <img src="assets/images/service/service-7.jpg" alt="Service" />
+                            <img src="./assets2/assets/img/services/services-1.jpg" alt="Service" />
                         </div>
                         <div class="service-text">
                             <div class="services-icon">
                                 <i class="flaticon-subway"></i>
                             </div>
-                            <h4 class="service-title"><a href="service-details.html">Train Transportation</a></h4>
+                            <h4 class="service-title"><a href="service-details.html">Next Flight Out</a></h4>
                             <p class="des">
                                 Long established fact that reader will be distracted by the Long established fact
                                 that will be distracted by the Long
@@ -1677,6 +1673,51 @@
         </div>
     </div>
     <!-- End scrollUp  -->
+
+
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <!-- Google Translate API script -->
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Google Translate API initialization script -->
+<script type="text/javascript">
+    // Function to initialize Google Translate API
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en', // Set the default language of the page
+            autoDisplay: false, // Disable auto display of the translation widget
+        }, 'custom_translate_element'); // ID of the container where the translation widget will be placed
+    }
+
+    // Trigger the initialization script
+    googleTranslateElementInit();
+
+    // Populate the select dropdown with languages supported by Google Translate API
+    function populateLanguages() {
+        var select = document.getElementById("custom_translate_element");
+
+        // Use google.translate.TranslateService to get the supported languages
+        var service = new google.translate.TranslateService();
+        service.getLanguagePairs(function(languagePairs) {
+            for (var i = 0; i < languagePairs.length; i++) {
+                var option = document.createElement("option");
+                option.value = languagePairs[i].source_language;
+                option.text = languagePairs[i].source_language;
+                select.appendChild(option);
+            }
+        });
+    }
+
+    // Populate the select dropdown with supported languages when the page is loaded
+    window.onload = function() {
+        populateLanguages();
+    };
+</script>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Modernizr.JS -->
     <script src="assets/js/modernizr-2.8.3.min.js"></script>
