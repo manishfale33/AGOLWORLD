@@ -640,6 +640,34 @@ textarea:focus {
     background-position: 100% -135px;
 }
 
+#google_translate_element {
+	display: none;
+}
+
+.goog-te-banner-frame.skiptranslate,.goog-te-gadget-simple img { 
+	display: none !important;
+}
+
+.goog-tooltip { 
+
+	display: none !important;
+}
+	
+.goog-tooltip:hover {
+	
+	display: none !important;
+}
+	
+.goog-text-highlight {
+	background-color: transparent !important;
+	border: none !important; 
+	box-shadow: none !important;
+}
+
+#custom_translate_element .goog-te-menu-value {
+    background-color: transparent !important; /* Remove background color */
+}
+
 /* ----------------------------------
     02. Hero CSS
  ------------------------------------ */

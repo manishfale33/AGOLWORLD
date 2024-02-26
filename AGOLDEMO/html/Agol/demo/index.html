@@ -225,6 +225,7 @@
                                         <i class="flaticon flaticon-mail"></i><a
                                             href="mailto:time.critical@agolworld.com"> time.critical@agolworld.com</a>
                                     </li>
+                                    24*7
                                     <li>
                                         <i class="flaticon flaticon-call"></i><a href="tel:+12523043851">+12523043851
                                         </a>
@@ -242,7 +243,12 @@
                             </div>
                             <div class="header-content-right d-flex align-items-center justify-content-end">
                                 <div class="input-form tj-select">
-                                    <select class="nice-select" id="custom_translate_element"></select>
+                                    <a>
+                                        <div class="single-footer-widget">
+                                            <!-- Container for the custom translation bar -->
+                                            <div id="custom_translate_element"></div>
+                                        </div>
+                                    </a>
                                 </div>
                                 <!--div class="header-social-icon">
                                         <ul class="list-gap social-list">
@@ -317,11 +323,13 @@
                                         <i class="flaticon-menu"></i>
                                     </a>
                                 </div>
-                                <div class="input-form tj-select d-lg-none">
-                                    <select class="nice-select" onchange="translateOptions()"">
-                                        <option value=" 1">English</option>
-                                        <option value="2">Arabic</option>
-                                    </select>
+                                <div class="">
+                                    <a>
+                                        <div class="single-footer-widget">
+                                            <!-- Container for the custom translation bar -->
+                                            <div id="custom_translate_element"></div>
+                                        </div>
+                                    </a>
                                 </div>
                                 <div class="tj-hambagur-icon d-lg-none">
                                     <a class="canva_expander nav-menu-link menu-button" href="#">
@@ -389,7 +397,7 @@
                                             <i class="flaticon-delivery-van"></i>
                                         </div>
                                         <div class="sub-title">
-                                            <span>Importer Of Record </span>
+                                            <span>Importer On Record </span>
                                         </div>
                                     </div>
                                     <div class="service-arrow">
@@ -1687,47 +1695,30 @@
     </script>
 
 
-    <script type="text/javascript"
-        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-    <!-- Google Translate API script -->
-    <script type="text/javascript"
-        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-    <!-- Google Translate API initialization script -->
-    <script type="text/javascript">
-        // Function to initialize Google Translate API
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en', // Set the default language of the page
-                autoDisplay: false, // Disable auto display of the translation widget
-            }, 'custom_translate_element'); // ID of the container where the translation widget will be placed
-        }
+<!-- Google Translate API script -->
+<script type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-        // Trigger the initialization script
+<!-- Google Translate API initialization script -->
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,es,fr,de,it,ja,zh-CN,zh-TW',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+        }, 'custom_translate_element');
+    }
+
+    // Trigger the initialization script
+    $(document).ready(function () {
         googleTranslateElementInit();
-
-        // Populate the select dropdown with languages supported by Google Translate API
-        function populateLanguages() {
-            var select = document.getElementById("custom_translate_element");
-
-            // Use google.translate.TranslateService to get the supported languages
-            var service = new google.translate.TranslateService();
-            service.getLanguagePairs(function (languagePairs) {
-                for (var i = 0; i < languagePairs.length; i++) {
-                    var option = document.createElement("option");
-                    option.value = languagePairs[i].source_language;
-                    option.text = languagePairs[i].source_language;
-                    select.appendChild(option);
-                }
-            });
-        }
-
-        // Populate the select dropdown with supported languages when the page is loaded
-        window.onload = function () {
-            populateLanguages();
-        };
-    </script>
+    });
+</script>
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
